@@ -11,11 +11,12 @@ import { claimTo, getNFTs, ownerOf, totalSupply } from "thirdweb/extensions/erc7
 import { NFTCard } from "./NFTCard";
 import { StakedNFTCard } from "./StakedNFTCard";
 
+// Menambahkan ekspor komponen Staking
 export const Staking = () => {
     const account = useActiveAccount();
 
     const [ownedNFTs, setOwnedNFTs] = useState<NFT[]>([]);
-    
+
     const getOwnedNFTs = async () => {
         let ownedNFTs: NFT[] = [];
 
@@ -27,7 +28,7 @@ export const Staking = () => {
             start: 0,
             count: parseInt(totalNFTSupply.toString()),
         });
-        
+
         for (let nft of nfts) {
             const owner = await ownerOf({
                 contract: NFT_CONTRACT,
@@ -39,7 +40,7 @@ export const Staking = () => {
         }
         setOwnedNFTs(ownedNFTs);
     };
-    
+
     useEffect(() => {
         if(account) {
             getOwnedNFTs();
@@ -54,7 +55,7 @@ export const Staking = () => {
         method: "getStakeInfo",
         params: [account?.address || ""],
     });
-    
+
     if(account) {
         return (
             <div style={{

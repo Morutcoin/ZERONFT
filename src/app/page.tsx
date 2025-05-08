@@ -3,9 +3,11 @@ import { client } from "./client";
 import { chain } from "./chain";
 import dynamic from "next/dynamic";
 
-// Menambahkan tipe eksplisit pada komponen Staking
-const Staking = dynamic(() => import("../../components/Staking") as any, { ssr: false });
-
+// Menambahkan tipe eksplisit pada komponen Staking dan memastikan dynamic import dengan benar
+const Staking = dynamic(() =>
+  import("../../components/Staking").then((mod) => mod.Staking), 
+  { ssr: false } // Menonaktifkan SSR agar komponen hanya dirender di client
+);
 
 export default function Home() {
   return (
@@ -21,7 +23,7 @@ export default function Home() {
         client={client}
         chain={chain}
       />
-      <Staking />
+      <Staking /> {/* Komponen Staking di-load dinamis */}
     </div>
   );
 }
