@@ -1,7 +1,11 @@
 import { ConnectEmbed } from "@/app/thirdweb";
 import { client } from "./client";
 import { chain } from "./chain";
-import { Staking } from "../../components/Staking";
+import dynamic from "next/dynamic";
+
+// Menambahkan tipe eksplisit pada komponen Staking
+const Staking = dynamic(() => import("../../components/Staking") as any, { ssr: false });
+
 
 export default function Home() {
   return (
