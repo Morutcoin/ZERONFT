@@ -37,11 +37,50 @@ export const StakeRewards = () => {
     }, []);
 
     return (
-        <div style={{ width: "100%", margin: "20px 0", display: "flex", flexDirection: "column" }}>
+        <div style={{ width: "100%", margin: "100px 0", display: "flex", flexDirection: "column", alignItems:"center", }}>
+            <div style={{ display:"flex", justifyContent:"center", alignItems: "center", width:"50%"}}>
+                <img style={{ width:"100%"}} src="/idrx.png" alt="" />
+            </div>
+            {/* <div style={{ display: "flex",
+                justifyContent: "center", // horizontal center
+                alignItems: "center" }}>
             {!isTokenBalanceLoading && (
-                <p>Wallet Balance: {toEther(BigInt(tokenBalance!.toString()))}</p>
+               <h5>
+               Wallet Balance: {tokenBalance && new Intl.NumberFormat("id-ID", {
+                 minimumFractionDigits: 2,
+                 maximumFractionDigits: 2
+               }).format(parseFloat(toEther(BigInt(tokenBalance.toString()))))}
+             </h5>
             )}
-            <h2 style={{ marginBottom: "20px"}}>Stake Rewards: {stakedInfo && toEther(BigInt(stakedInfo[1].toString()))}</h2>
+            </div> */}
+          
+          <h2 style={{
+  display: "flex",
+  justifyContent: "center",
+  alignItems: "center",
+  marginTop: "20px",
+  padding: "20px",
+  fontSize: "2rem",
+  fontWeight: "bold",
+  color: "transparent",
+  backgroundImage: "linear-gradient(to right, #00f260, #0575e6)", // green to blue
+  backgroundClip: "text",
+  WebkitBackgroundClip: "text",
+  WebkitTextFillColor: "transparent",
+  boxShadow: "0 4px 20px rgba(0, 242, 96, 0.2)",
+  borderRadius: "12px",
+  transition: "transform 0.3s ease",
+  cursor: "default"
+}}
+onMouseEnter={(e) => e.currentTarget.style.transform = "scale(1.05)"}
+onMouseLeave={(e) => e.currentTarget.style.transform = "scale(1)"}
+>
+  IDRX Rewards: {stakedInfo && new Intl.NumberFormat("id-ID", {
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2
+  }).format(parseFloat(toEther(BigInt(stakedInfo[1].toString()))))}
+</h2>
+
             <TransactionButton
                 transaction={() => (
                     prepareContractCall({

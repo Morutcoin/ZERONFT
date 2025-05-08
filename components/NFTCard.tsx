@@ -16,18 +16,20 @@ export const NFTCard = ({ nft, refetch, refecthStakedInfo }: OwnedNFTsProps) => 
     const [isApproved, setIsApproved] = useState(false);
 
     return (
-        <div style={{ margin: "10px" }}>
+        <div style={{ margin: "20px" }}>
             <MediaRenderer
                 client={client}
                 src={nft.metadata.image}
                 style={{
                     borderRadius: "10px",
-                    marginBottom: "10px",
-                    height: "200px",
-                    width: "200px"
+                    marginBottom: "",
+                    height: "50%px",
+                    width: "100%px"
                 }}
             />
-            <p style={{ margin: "0 10px 10px 10px"}}>{nft.metadata.name}</p>
+            <p style={{  display: "flex",
+                justifyContent: "center", // horizontal center
+                alignItems: "center",  }}>{nft.metadata.name}</p>
             <button
                 onClick={() => setIsModalOpen(true)}
                 style={{
@@ -38,6 +40,7 @@ export const NFTCard = ({ nft, refetch, refecthStakedInfo }: OwnedNFTsProps) => 
                     borderRadius: "10px",
                     cursor: "pointer",
                     width: "100%"
+                    
                 }}
             >Stake</button>
             {isModalOpen && (
@@ -50,7 +53,8 @@ export const NFTCard = ({ nft, refetch, refecthStakedInfo }: OwnedNFTsProps) => 
                     backgroundColor: "rgba(0, 0, 0, 0.5)",
                     display: "flex",
                     justifyContent: "center",
-                    alignItems: "center"
+                    alignItems: "center",
+                    zIndex: "9999"
                 }}>
                     <div style={{
                         minWidth: "300px",

@@ -20,18 +20,21 @@ export const StakedNFTCard: React.FC<StakedNFTCardProps> = ({ tokenId, refetchSt
     );
     
     return (
-        <div style={{ margin: "10px" }}>
+        <div style={{ margin: "10px",
+        alignContent: "center", }}>
             <MediaRenderer
                 client={client}
                 src={nft?.metadata.image}
                 style={{
                     borderRadius: "10px",
                     marginBottom: "10px",
-                    height: "200px",
-                    width: "200px"
+                    height: "50%",
+                    width: "100%"
                 }}
             />
-            <p style={{ margin: "0 10px 10px 10px"}}>{nft?.metadata.name}</p>
+            <h5 style={{ display: "flex",
+                justifyContent: "center", // horizontal center
+                alignItems: "center"}}>{nft?.metadata.name}</h5>
             <TransactionButton
                 transaction={() => (
                     prepareContractCall({

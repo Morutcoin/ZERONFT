@@ -1,5 +1,6 @@
 'use client';
 
+import '../styles/custom.css';
 import { chain } from "@/app/chain";
 import { client } from "@/app/client";
 import { ConnectButton, TransactionButton, useActiveAccount, useReadContract } from "thirdweb/react";
@@ -62,9 +63,8 @@ export const Staking = () => {
                 display: "flex",
                 flexDirection: "column",
                 alignItems: "center",
-                backgroundColor: "#151515",
                 borderRadius: "8px",
-                width: "500px",
+                width: "100%",
                 padding: "20px",
             }}>
                 <ConnectButton
@@ -79,7 +79,7 @@ export const Staking = () => {
                     margin: "20px 0",
                     width: "100%"
                 }}>
-                    <h2 style={{ marginRight: "20px"}}>Claim NFT to Stake</h2>
+                    {/* <h2 style={{ marginRight: "20px"}}>Claim NFT to Stake</h2>
                     <TransactionButton
                         transaction={() => (
                             claimTo({
@@ -99,31 +99,44 @@ export const Staking = () => {
                             padding: "10px 20px",
                             borderRadius: "10px",
                         }}
-                    >Claim NFT</TransactionButton>
+                    >Claim NFT</TransactionButton> */}
                 </div>
                 <hr style={{
                     width: "100%",
                     border: "1px solid #333"
                 }}/>
                 <div style={{ 
-                    margin: "20px 0",
+                    margin: "0x 0",
                     width: "100%"
                 }}>
-                    <h2>Owned NFTs</h2>
-                    <div style={{ display: "flex", flexDirection: "row", flexWrap: "wrap", width: "500px"}}>
-                        {ownedNFTs && ownedNFTs.length > 0 ? (
-                            ownedNFTs.map((nft) => (
-                                <NFTCard
-                                    key={nft.id}
-                                    nft={nft}
-                                    refetch={getOwnedNFTs}
-                                    refecthStakedInfo={refetchStakedInfo}
-                                />
-                            ))
-                        ) : (
-                            <p>You own 0 NFTs</p>
-                        )}
-                    </div>
+                  <h2>Owned NFTs</h2>
+<div style={{
+    display: "flex",
+    flexWrap: "wrap",
+    justifyContent: "center", // Untuk center align
+    gap: "20px", // Spasi antar item
+    width: "100%",
+}}>
+    {ownedNFTs && ownedNFTs.length > 0 ? (
+        ownedNFTs.map((nft) => (
+            <div style={{
+                width: "100%", 
+                height: "auto", 
+                objectFit: "cover", // Agar gambar terpotong dengan baik jika perlu
+                borderRadius: "8px", // Opsional untuk border radius
+            }} key={nft.id}>
+                <NFTCard
+                    nft={nft}
+                    refetch={getOwnedNFTs}
+                    refecthStakedInfo={refetchStakedInfo}
+                />
+            </div>
+        ))
+    ) : (
+        <p>You own 0 NFTs</p>
+    )}
+</div>
+
                 </div>
                 <hr style={{
                     width: "100%",
@@ -131,7 +144,7 @@ export const Staking = () => {
                 }}/>
                 <div style={{ width: "100%", margin: "20px 0" }}>
                     <h2>Staked NFTs</h2>
-                    <div style={{ display: "flex", flexDirection: "row", flexWrap: "wrap", width: "500px"}}>
+                    <div style={{ display: "flex", flexDirection: "row", flexWrap: "wrap", width: "50%"}}>
                         {stakedInfo && stakedInfo[0].length > 0 ? (
                             stakedInfo[0].map((nft: any, index: number) => (
                                 <StakedNFTCard

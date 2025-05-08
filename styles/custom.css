@@ -1,0 +1,153 @@
+/* General Styles */
+.staking-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #151515;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 600px;
+    padding: 20px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+
+/* Section styling */
+.action-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 20px 0;
+    width: 100%;
+}
+
+.claim-button {
+    font-size: 14px;
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%;
+    max-width: 200px;
+}
+
+.claim-button:hover {
+    background-color: #45a049;
+}
+
+.nft-section {
+    width: 100%;
+    margin: 20px 0;
+}
+
+.nft-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    width: 100%;
+}
+
+.nft-grid p {
+    text-align: center;
+    width: 100%;
+    color: white;
+}
+
+h2 {
+    color: #fff;
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .staking-container {
+        width: 100%;
+        padding: 15px;
+    }
+
+    .action-section {
+        width: 100%;
+        margin: 10px 0;
+    }
+
+    .claim-button {
+        font-size: 12px;
+        padding: 10px;
+        max-width: 180px;
+    }
+
+    .nft-grid {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .nft-grid p {
+        font-size: 14px;
+    }
+
+    h2 {
+        font-size: 16px;
+    }
+}
+
+/* For very small screens */
+@media screen and (max-width: 480px) {
+    .claim-button {
+        font-size: 12px;
+        padding: 8px;
+        max-width: 150px;
+    }
+
+    .nft-grid p {
+        font-size: 12px;
+    }
+
+    h2 {
+        font-size: 14px;
+    }
+}
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@600;800&display=swap');
+
+.staking-header {
+  text-align: center;
+  font-size: 3rem;
+  font-weight: 800;
+  letter-spacing: 2px;
+  background-image: linear-gradient(270deg, #00f2fe, #4facfe);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 10px rgba(0, 242, 254, 0.4), 0 0 20px rgba(79, 172, 254, 0.2);
+  margin-top: 40px;
+  font-family: 'Orbitron', sans-serif;
+  animation: fadeIn 1s ease-out, pulseGlow 2.5s infinite;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulseGlow {
+  0% {
+    text-shadow: 0 0 10px rgba(0, 242, 254, 0.4), 0 0 20px rgba(79, 172, 254, 0.2);
+  }
+  50% {
+    text-shadow: 0 0 20px rgba(0, 242, 254, 0.8), 0 0 30px rgba(79, 172, 254, 0.5);
+  }
+  100% {
+    text-shadow: 0 0 10px rgba(0, 242, 254, 0.4), 0 0 20px rgba(79, 172, 254, 0.2);
+  }
+}
